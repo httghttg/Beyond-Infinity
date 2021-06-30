@@ -3,7 +3,7 @@ import pygame
 import os
 import View.MainMenuView as main
 import View.ShipSelectView as shipselect
-from View.ParentView import View, Sprite
+from View.ParentView import View, Sprite, spritesFolder, mainFolder
 
 
 class GameOverView(View):
@@ -14,11 +14,11 @@ class GameOverView(View):
         self.allFonts = pygame.font.get_fonts()
         self.font = pygame.font.SysFont(self.allFonts[8], 30)
         # background image
-        self.bg = pygame.image.load('Sprites/Menu/Blank_Page.png')
+        self.bg = pygame.image.load(spritesFolder + 'Menu/Blank_Page.png')
         # creates all the sprite stars and puts it in Sprite.Group
         self.stars = self.make_stars()
         # 146x88
-        self.gameOverLabel = Label("game_over", pygame.image.load('Sprites/Options/Game_Over.png'), 146, 88) # [2] 146
+        self.gameOverLabel = Label("game_over", pygame.image.load(spritesFolder + 'Options/Game_Over.png'), 146, 88) # [2] 146
         self.retry = TextOption('Retry', 305, 550) # [2] 400
         self.mainMenu = TextOption('Main Menu', 275, 600) # [2] 450
         self.score1 = TextOption('1. ' + str(00000),((self.windowWidth-self.gameOverLabel.xAxis)/2)-10,270)
@@ -31,17 +31,17 @@ class GameOverView(View):
         self.lst = [0, 0, 0, 0, 0]
 
     def updateScores(self, latestScore):
-        if not os.path.exists("score.txt"):
-            with open("score.txt", "w+") as f:
+        if not os.path.exists(mainFolder + "score.txt"):
+            with open(mainFolder + "score.txt", "w+") as f:
                 for i in range(5):
                     f.write(str(0) + '\n')
         else:
-            with open("score.txt", "r") as f:
+            with open(mainFolder + "score.txt", "r") as f:
                 lines = f.readlines()
                 for i, line in enumerate(lines):
                     self.lst[i] = int(line.rstrip('\n'))
         # updates scoreboard
-        with open("score.txt", "w+") as f:
+        with open(mainFolder + "score.txt", "w+") as f:
             self.lst.append(latestScore)
             self.lst.sort(reverse=True)
             self.lst.pop()

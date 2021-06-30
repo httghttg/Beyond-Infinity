@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 import pygame
 from Model.PlayerBulletFactory import BulletPlayerFactory
-from View.ParentView import View
+from View.ParentView import View, spritesFolder
 
 
 class PlayerShip(metaclass=ABCMeta):
@@ -12,7 +12,7 @@ class PlayerShip(metaclass=ABCMeta):
         self.width = 64
         self.height = 64
         self.energy = 0
-        self.hitSound = pygame.mixer.Sound('Sprites/PlayerShips/Ship_Hit.wav')
+        self.hitSound = pygame.mixer.Sound(spritesFolder + 'PlayerShips/Ship_Hit.wav')
         self.bulletType = None
         self.shotType = None
         self.fireRate = None
@@ -56,9 +56,9 @@ class PlayerInfinity(PlayerShip):
         self.currentBullet = BulletPlayerFactory.create_player_bullet(self.bulletType)
         self.specialBullet = BulletPlayerFactory.create_player_bullet(self.ability)
         self.damageAdder = 0
-        self.images = View.load_images('Sprites/PlayerShips/Infinity/Infinity_Flying')
-        self.des_images = View.load_images('Sprites/PlayerShips/Infinity/Infinity_Destroyed')
-        self.deathSound = pygame.mixer.Sound('Sprites/PlayerShips/Infinity/Infinity_Destroyed.wav')
+        self.images = View.load_images(spritesFolder + 'PlayerShips/Infinity/Infinity_Flying')
+        self.des_images = View.load_images(spritesFolder + 'PlayerShips/Infinity/Infinity_Destroyed')
+        self.deathSound = pygame.mixer.Sound(spritesFolder + 'PlayerShips/Infinity/Infinity_Destroyed.wav')
         self.hitBoxes = [[25, 0, 15, 50], [7, 35, 53, 10]]
 
 
@@ -78,9 +78,9 @@ class PlayerImperier(PlayerShip):
         self.currentBullet = BulletPlayerFactory.create_player_bullet(self.bulletType)
         self.specialBullet = BulletPlayerFactory.create_player_bullet(self.ability)
         self.damageAdder = 10
-        self.images = View.load_images('Sprites/PlayerShips/Imperier/Flying')
-        self.des_images = View.load_images('Sprites/PlayerShips/Imperier/Destroyed')
-        self.deathSound = pygame.mixer.Sound('Sprites/PlayerShips/Imperier/Imperier_Destroyed.wav')
+        self.images = View.load_images(spritesFolder + 'PlayerShips/Imperier/Flying')
+        self.des_images = View.load_images(spritesFolder + 'PlayerShips/Imperier/Destroyed')
+        self.deathSound = pygame.mixer.Sound(spritesFolder + 'PlayerShips/Imperier/Imperier_Destroyed.wav')
         self.hitBoxes = [[20, 10, 25, 50], [5, 18, 55, 10]]
 
 
@@ -100,9 +100,9 @@ class PlayerScatter(PlayerShip):
         self.currentBullet = BulletPlayerFactory.create_player_bullet(self.bulletType)
         self.specialBullet = BulletPlayerFactory.create_player_bullet(self.ability)
         self.damageAdder = 0
-        self.images = View.load_images('Sprites/PlayerShips/Scatter/Flying')
-        self.des_images = View.load_images('Sprites/PlayerShips/Scatter/Destroyed')
-        self.deathSound = pygame.mixer.Sound('Sprites/PlayerShips/Scatter/Scatter_Destroyed.wav')
+        self.images = View.load_images(spritesFolder + 'PlayerShips/Scatter/Flying')
+        self.des_images = View.load_images(spritesFolder + 'PlayerShips/Scatter/Destroyed')
+        self.deathSound = pygame.mixer.Sound(spritesFolder + 'PlayerShips/Scatter/Scatter_Destroyed.wav')
         self.hitBoxes = [[27, 13, 10, 50], [15, 25, 35, 20], [0, 20, 64, 20]]
 
 

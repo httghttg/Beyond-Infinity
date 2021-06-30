@@ -1,8 +1,8 @@
 # importation for pygame, os and all the views
 import pygame
 import os
+from View.ParentView import View, spritesFolder
 import View.ParentView, View.MainMenuView, View.QuitView, View.GameOverView
-
 
 def main():
     # Used to change and fix directory issues
@@ -17,7 +17,7 @@ def main():
     # clock that the game is running on
     clock = pygame.time.Clock()
     # plays menu music
-    cv.play_music('Sprites/Menu/Menu_Track.wav')
+    cv.play_music(spritesFolder + 'Menu/Menu_Track.wav')
     # temp variable for score
     score = 0
     # while the current view is running, loop

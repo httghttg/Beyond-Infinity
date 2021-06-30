@@ -7,7 +7,7 @@ from Model.FormationFactory import FactoryFormation
 from Model.PlayerBulletSprite import PlayerBulletSprite
 from Model.PlayerShipFactory import ShipPlayerFactory
 from Model.SectionModel import Section
-from View.ParentView import View, Sprite
+from View.ParentView import View, Sprite, spritesFolder
 from View.PlayerModel import Player
 
 
@@ -15,7 +15,7 @@ class GameplayView(View):
     def __init__(self, selected_ship):
         super(GameplayView, self).__init__()
         self.name = "Gameplay"
-        self.bg = pygame.image.load('Sprites/Menu/Blank_Page.png')
+        self.bg = pygame.image.load(spritesFolder + 'Menu/Blank_Page.png')
         # Player Ship
         self.playerShip = ShipPlayerFactory.create_player_ship(selected_ship)
         self.player = Player(self.playerShip.startingX, self.playerShip.startingY, self.playerShip.width,
@@ -29,7 +29,7 @@ class GameplayView(View):
         # List of Explosions
         self.explosionArray = pygame.sprite.Group()
         # Display
-        self.heart = View.load_images('Sprites/Player_Info/Heart')
+        self.heart = View.load_images(spritesFolder + 'Player_Info/Heart')
         self.allFonts = pygame.font.get_fonts()
         self.font = pygame.font.SysFont(self.allFonts[8], 24)
         self.font1 = pygame.font.SysFont(self.allFonts[8], 20)
@@ -323,7 +323,7 @@ class GameplayView(View):
     def player_hit(self, damaged, damage):
         if not damaged:
             self.playerShip.health -= damage
-            if self.playerShip.health < 0:
+            if self.playerShip.health <= 0:
                 self.playerShip.health = 0
             self.player.invincible = True
             self.playerShip.hitSound.play()

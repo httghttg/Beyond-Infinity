@@ -5,7 +5,7 @@ from Model.EnemyBulletFactory import BulletEnemyFactory
 from Model.EnemyBulletSprite import EnemyBulletSprite
 from Model.EnemyShipSprite import EnemyShipSprite
 from Model.ExplosionFactory import CreateExplosionFactory
-from View.ParentView import View
+from View.ParentView import View, spritesFolder
 
 
 class EnemyShip(metaclass=ABCMeta):
@@ -44,9 +44,9 @@ class Imperier(EnemyShip):
         self.health = 30
         self.damage = 25
         self.score = 175
-        self.images = View.load_images('Sprites/EnemyShips/Lvl1_Enemy_Imperier')
+        self.images = View.load_images(spritesFolder + 'EnemyShips/Lvl1_Enemy_Imperier')
         self.explosion = CreateExplosionFactory.create_explosion("64_Basic")
-        self.explosionSound = pygame.mixer.Sound('Sprites/Explosions/Explosion1.wav')
+        self.explosionSound = pygame.mixer.Sound(spritesFolder + 'Explosions/Explosion1.wav')
         self.shoots = True
         self.bullet = BulletEnemyFactory.create_enemy_bullet("Red_Bullet")
         self.cdLow = 2
@@ -71,9 +71,9 @@ class Scatter(EnemyShip):
         self.health = 20
         self.damage = 25
         self.score = 200
-        self.images = View.load_images('Sprites/EnemyShips/Lvl1_Enemy_Scatter')
+        self.images = View.load_images(spritesFolder + 'EnemyShips/Lvl1_Enemy_Scatter')
         self.explosion = CreateExplosionFactory.create_explosion("64_Basic")
-        self.explosionSound = pygame.mixer.Sound('Sprites/Explosions/Explosion1.wav')
+        self.explosionSound = pygame.mixer.Sound(spritesFolder + 'Explosions/Explosion1.wav')
         self.shoots = True
         self.bullet = BulletEnemyFactory.create_enemy_bullet("Red_Bullet")
         self.cdLow = 2
@@ -107,9 +107,9 @@ class Impaler(EnemyShip):
         self.health = 40
         self.damage = 40
         self.score = 175
-        self.images = View.load_images('Sprites/EnemyShips/Lvl1_Enemy_Impaler')
+        self.images = View.load_images(spritesFolder + 'EnemyShips/Lvl1_Enemy_Impaler')
         self.explosion = CreateExplosionFactory.create_explosion("96_Basic")
-        self.explosionSound = pygame.mixer.Sound('Sprites/Explosions/Explosion1.wav')
+        self.explosionSound = pygame.mixer.Sound(spritesFolder + 'Explosions/Explosion1.wav')
         self.shoots = False
         self.cdLow = 1
         self.cdHigh = 4
@@ -134,9 +134,9 @@ class KZBomber(EnemyShip):
         self.health = 1
         self.damage = 40
         self.score = 75
-        self.images = View.load_images('Sprites/EnemyShips/Lvl1_Enemy_KZ_Bomber')
+        self.images = View.load_images(spritesFolder + 'EnemyShips/Lvl1_Enemy_KZ_Bomber')
         self.explosion = CreateExplosionFactory.create_explosion("176_Red")
-        self.explosionSound = pygame.mixer.Sound('Sprites/Explosions/Explosion2.wav')
+        self.explosionSound = pygame.mixer.Sound(spritesFolder + 'Explosions/Explosion2.wav')
         self.shoots = False
         self.cdLow = 1
         self.cdHigh = 4

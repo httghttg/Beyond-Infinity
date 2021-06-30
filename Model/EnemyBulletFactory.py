@@ -1,6 +1,6 @@
 from abc import ABCMeta
 import pygame
-from View.ParentView import View
+from View.ParentView import View, spritesFolder
 
 
 class EnemyBullet(metaclass=ABCMeta):
@@ -19,10 +19,10 @@ class RedEnemyBullet(EnemyBullet):
     def __init__(self):
         super().__init__()
         self.name = "Red_Bullet"
-        self.image = View.load_images('Sprites/Projectiles/Small_Enemy_Red_Bullet')
+        self.image = View.load_images(spritesFolder + 'Projectiles/Small_Enemy_Red_Bullet')
         self.width = 10
         self.height = 24
-        self.sound = pygame.mixer.Sound('Sprites/Projectiles/Small_Red_Bullet.wav')
+        self.sound = pygame.mixer.Sound(spritesFolder + 'Projectiles/Small_Red_Bullet.wav')
         self.speed = 7
         self.damage = 25
 

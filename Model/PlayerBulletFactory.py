@@ -1,7 +1,7 @@
 from abc import ABCMeta
 import pygame
 from Model.ExplosionFactory import CreateExplosionFactory
-from View.ParentView import View
+from View.ParentView import View, spritesFolder
 
 
 class PlayerBullet(metaclass=ABCMeta):
@@ -38,11 +38,11 @@ class BasicPlayerBullet(PlayerBullet):
     def __init__(self):
         super().__init__()
         self.name = "Basic_Bullet"
-        self.image = View.load_images('Sprites/Projectiles/Small_Basic_Bullet')
+        self.image = View.load_images(spritesFolder + 'Projectiles/Small_Basic_Bullet')
         self.width = 10
         self.height = 24
-        self.sound = pygame.mixer.Sound('Sprites/Projectiles/Basic_Bullet.wav')
-        self.hitSound = pygame.mixer.Sound('Sprites/Projectiles/Basic_Bullet_Hit.wav')
+        self.sound = pygame.mixer.Sound(spritesFolder + 'Projectiles/Basic_Bullet.wav')
+        self.hitSound = pygame.mixer.Sound(spritesFolder + 'Projectiles/Basic_Bullet_Hit.wav')
         self.explosion = CreateExplosionFactory.create_explosion("16_Basic")
         self.speed = 10
         self.explode = False
@@ -54,11 +54,11 @@ class RedPlayerBullet(PlayerBullet):
     def __init__(self):
         super().__init__()
         self.name = "Red_Bullet"
-        self.image = View.load_images('Sprites/Projectiles/Small_Red_Bullet')
+        self.image = View.load_images(spritesFolder + 'Projectiles/Small_Red_Bullet')
         self.width = 10
         self.height = 24
-        self.sound = pygame.mixer.Sound('Sprites/Projectiles/Small_Red_Bullet.wav')
-        self.hitSound = pygame.mixer.Sound('Sprites/Projectiles/Basic_Bullet_Hit.wav')
+        self.sound = pygame.mixer.Sound(spritesFolder + 'Projectiles/Small_Red_Bullet.wav')
+        self.hitSound = pygame.mixer.Sound(spritesFolder + 'Projectiles/Basic_Bullet_Hit.wav')
         self.explosion = CreateExplosionFactory.create_explosion("16_Red")
         self.speed = 7
         self.explode = False
@@ -70,11 +70,11 @@ class IonBlast(PlayerBullet):
     def __init__(self):
         super().__init__()
         self.name = "Ion_Blast"
-        self.image = View.load_images('Sprites/Projectiles/Blue_Ion_Blast')
+        self.image = View.load_images(spritesFolder + 'Projectiles/Blue_Ion_Blast')
         self.width = 64
         self.height = 64
-        self.sound = pygame.mixer.Sound('Sprites/Projectiles/Ion_Blast.wav')
-        self.hitSound = pygame.mixer.Sound('Sprites/Explosions/Ion_Explosion.wav')
+        self.sound = pygame.mixer.Sound(spritesFolder + 'Projectiles/Ion_Blast.wav')
+        self.hitSound = pygame.mixer.Sound(spritesFolder + 'Explosions/Ion_Explosion.wav')
         self.explosion = CreateExplosionFactory.create_explosion("176_Blue")
         self.speed = 8
         self.explode = True
@@ -87,11 +87,11 @@ class MiniKZ(PlayerBullet):
     def __init__(self):
         super().__init__()
         self.name = "Mini_KZ"
-        self.image = View.load_images('Sprites/Projectiles/Mini_KZ')
+        self.image = View.load_images(spritesFolder + 'Projectiles/Mini_KZ')
         self.width = 64
         self.height = 64
-        self.sound = pygame.mixer.Sound('Sprites/Projectiles/Deploy_Mine.wav')
-        self.hitSound = pygame.mixer.Sound('Sprites/Explosions/Ion_Explosion.wav')
+        self.sound = pygame.mixer.Sound(spritesFolder + 'Projectiles/Deploy_Mine.wav')
+        self.hitSound = pygame.mixer.Sound(spritesFolder + 'Explosions/Ion_Explosion.wav')
         self.explosion = CreateExplosionFactory.create_explosion("176_Red")
         self.speed = 8
         self.explode = True
@@ -106,11 +106,11 @@ class ScatterShot(PlayerBullet):
     def __init__(self):
         super().__init__()
         self.name = "Scatter_Shot"
-        self.image = View.load_images('Sprites/Projectiles/Small_Red_Bullet')
+        self.image = View.load_images(spritesFolder + 'Projectiles/Small_Red_Bullet')
         self.width = 10
         self.height = 24
-        self.sound = pygame.mixer.Sound('Sprites/Projectiles/Multi_Red_Bullets.wav')
-        self.hitSound = pygame.mixer.Sound('Sprites/Projectiles/Basic_Bullet_Hit.wav')
+        self.sound = pygame.mixer.Sound(spritesFolder + 'Projectiles/Multi_Red_Bullets.wav')
+        self.hitSound = pygame.mixer.Sound(spritesFolder + 'Projectiles/Basic_Bullet_Hit.wav')
         self.explosion = CreateExplosionFactory.create_explosion("176_Red")
         self.explosion = CreateExplosionFactory.create_explosion("16_Red")
         self.speed = 7

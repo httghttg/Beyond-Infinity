@@ -3,7 +3,7 @@ import pygame
 import View.MainMenuView as Main
 import View.PlayerControlView as Controls
 from Model.ViewShipFactory import ShipViewFactory
-from View.ParentView import View
+from View.ParentView import View, spritesFolder
 # Ship select view controls ship select menu
 
 
@@ -12,16 +12,16 @@ class ShipSelectView(View):
     def __init__(self):
         super(ShipSelectView, self).__init__()
         self.name = "ShipSelect"
-        self.bg = pygame.image.load('Sprites/Menu/Select_Page.png')
+        self.bg = pygame.image.load(spritesFolder + 'Menu/Select_Page.png')
         # 146x44
-        self.backButton = ButtonOption("back", pygame.image.load('Sprites/Options/Back.png'),
-                                       pygame.image.load('Sprites/Options/Back_Highlighted.png'), 25, 675)
-        self.playButton = ButtonOption("play", pygame.image.load('Sprites/Options/Play.png'),
-                                       pygame.image.load('Sprites/Options/H_Play.png'), 529, 675)
-        self.leftArrow = ButtonOption("left", pygame.image.load('Sprites/Options/Left_Arrow.png'),
-                                      pygame.image.load('Sprites/Options/Left_Arrow_Highlighted.png'), 67, 425)
-        self.rightArrow = ButtonOption("right", pygame.image.load('Sprites/Options/Right_Arrow.png'),
-                                       pygame.image.load('Sprites/Options/Right_Arrow_Highlighted.png'), 218, 425)
+        self.backButton = ButtonOption("back", pygame.image.load(spritesFolder + 'Options/Back.png'),
+                                       pygame.image.load(spritesFolder + 'Options/Back_Highlighted.png'), 25, 675)
+        self.playButton = ButtonOption("play", pygame.image.load(spritesFolder + 'Options/Play.png'),
+                                       pygame.image.load(spritesFolder + 'Options/H_Play.png'), 529, 675)
+        self.leftArrow = ButtonOption("left", pygame.image.load(spritesFolder + 'Options/Left_Arrow.png'),
+                                      pygame.image.load(spritesFolder + 'Options/Left_Arrow_Highlighted.png'), 67, 425)
+        self.rightArrow = ButtonOption("right", pygame.image.load(spritesFolder + 'Options/Right_Arrow.png'),
+                                       pygame.image.load(spritesFolder + 'Options/Right_Arrow_Highlighted.png'), 218, 425)
         self.index = 0
         ViewInfinity = ShipViewFactory.create_view_ship("ViewInfinity")
         ViewImperier = ShipViewFactory.create_view_ship("ViewImperier")

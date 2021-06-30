@@ -2,6 +2,8 @@
 import pygame
 import os
 
+mainFolder = 'BeyondInfinity/'
+spritesFolder = 'BeyondInfinity/Sprites/'
 
 class View(object):
     #  parent class of view
@@ -18,11 +20,11 @@ class View(object):
         # Initializes pygame screen
         self.screen = pygame.display.set_mode((self.windowWidth, self.windowHeight))
         # Frames for stars
-        self.star1 = View.load_images('Sprites/Background/Animated_Star1')
-        self.star2 = View.load_images('Sprites/Background/Animated_Star2')
-        self.star3 = View.load_images('Sprites/Background/Animated_Star3')
+        self.star1 = View.load_images(spritesFolder + 'Background/Animated_Star1')
+        self.star2 = View.load_images(spritesFolder + 'Background/Animated_Star2')
+        self.star3 = View.load_images(spritesFolder + 'Background/Animated_Star3')
         pygame.display.set_caption('BEYOND INFINITY')
-        pygame.display.set_icon(pygame.image.load('Sprites/PlayerShips/Infinity/Infinity_Flying/BasicShipFlying0.png'))
+        pygame.display.set_icon(pygame.image.load(spritesFolder + 'PlayerShips/Infinity/Infinity_Flying/BasicShipFlying0.png'))
 
     def is_running(self):
         # returns running which either continues or stops the game
@@ -39,7 +41,7 @@ class View(object):
 
     def transition(self):
         # plays select sound effect and screen fades out
-        pygame.mixer.music.load('Sprites/Menu/Menu_Select.mp3')
+        pygame.mixer.music.load(spritesFolder + 'Menu/Menu_Select.mp3')
         pygame.mixer.music.play()
         fade = pygame.Surface((self.windowWidth, self.windowHeight))
         fade.fill((0, 0, 0))

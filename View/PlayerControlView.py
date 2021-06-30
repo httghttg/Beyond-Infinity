@@ -2,7 +2,7 @@
 import pygame
 import View.ShipSelectView as shipselect
 import View.GameplayView as gameplay
-from View.ParentView import View
+from View.ParentView import View, spritesFolder
 # Ship select view controls ship select menu
 
 
@@ -11,7 +11,7 @@ class PlayerControlView(View):
     def __init__(self, selected_ship):
         super(PlayerControlView, self).__init__()
         self.name = "PlayerControls"
-        self.bg = pygame.image.load('Sprites/Menu/Player_Controls_Page.png')
+        self.bg = pygame.image.load(spritesFolder + 'Menu/Player_Controls_Page.png')
         self.selectedShip = selected_ship
 
     def draw(self, mouse, dt):

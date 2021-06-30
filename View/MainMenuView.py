@@ -2,7 +2,7 @@
 from random import randint
 import random
 import pygame
-from View.ParentView import View, Sprite
+from View.ParentView import View, Sprite, spritesFolder
 import View.SettingsView as settings
 import View.QuitView as quit
 import View.ShipSelectView as ssv
@@ -18,8 +18,8 @@ class MainMenuView(View):
         # Spacing between each Menu option image
         self.heightSpacing = 75
         # background image
-        self.bg = pygame.image.load('Sprites/Menu/Main_Menu.png')
-        self.BasicShipFrames = View.load_images('Sprites/PlayerShips/Infinity/Infinity_Flying')
+        self.bg = pygame.image.load(spritesFolder + 'Menu/Main_Menu.png')
+        self.BasicShipFrames = View.load_images(spritesFolder + 'PlayerShips/Infinity/Infinity_Flying')
         # creates all the sprite stars and puts it in Sprite.Group
         self.stars = self.make_stars()
         # tuple of option classes
@@ -36,14 +36,14 @@ class MainMenuView(View):
         #  If you want to add one more option, add 75 to height spacing between each image
 
         # 346x44
-        startOption = MenuOption("start", pygame.image.load('Sprites/Options/Start_Game.png'),
-                                 pygame.image.load('Sprites/Options/Start_Game_Highlighted.png'), 346, 425)
+        startOption = MenuOption("start", pygame.image.load(spritesFolder + 'Options/Start_Game.png'),
+                                 pygame.image.load(spritesFolder + 'Options/Start_Game_Highlighted.png'), 346, 425)
         # 274x44
-        # settingsOption = MenuOption("settings", pygame.image.load('Sprites/Options/Settings.png'),
-        #                           pygame.image.load('Sprites/Options/Settings_Highlighted.png'), 274, 450)
+        # settingsOption = MenuOption("settings", pygame.image.load(spritesFolder + 'Options/Settings.png'),
+        #                           pygame.image.load(spritesFolder + 'Options/Settings_Highlighted.png'), 274, 450)
         # 126x44
-        quitOption = MenuOption("quit", pygame.image.load('Sprites/Options/Quit.png'),
-                                pygame.image.load('Sprites/Options/Quit_Highlighted.png'), 126, 525)
+        quitOption = MenuOption("quit", pygame.image.load(spritesFolder + 'Options/Quit.png'),
+                                pygame.image.load(spritesFolder + 'Options/Quit_Highlighted.png'), 126, 525)
         option_tuple = (startOption, quitOption)
         return option_tuple
 

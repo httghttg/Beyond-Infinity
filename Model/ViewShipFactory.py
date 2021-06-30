@@ -1,5 +1,5 @@
 from abc import ABCMeta, abstractmethod
-from View.ParentView import View, Sprite
+from View.ParentView import View, Sprite, spritesFolder
 
 
 class ViewShip(metaclass=ABCMeta):
@@ -27,11 +27,11 @@ class ViewInfinity(ViewShip):
         self.damage = 1
         self.fireRate = 3
         self.speed = 3
-        self.images = Sprite(144, 425, 64, View.load_images('Sprites/PlayerShips/Infinity/Infinity_Flying'), 0)
+        self.images = Sprite(144, 425, 64, View.load_images(spritesFolder + 'PlayerShips/Infinity/Infinity_Flying'), 0)
         self.shotType = 'Single Shot'
-        self.shotImage = Sprite(550, 365, 64, View.load_images('Sprites/Projectiles/Small_Basic_Bullet'), 0)
+        self.shotImage = Sprite(550, 365, 64, View.load_images(spritesFolder + 'Projectiles/Small_Basic_Bullet'), 0)
         self.ability = '  Ion Blast'
-        self.abilityImages = Sprite(534, 494, 64, View.load_images('Sprites/Projectiles/Blue_Ion_Blast'), 0)
+        self.abilityImages = Sprite(534, 494, 64, View.load_images(spritesFolder + 'Projectiles/Blue_Ion_Blast'), 0)
 
 
 class ViewImperier(ViewShip):
@@ -39,15 +39,15 @@ class ViewImperier(ViewShip):
     def __init__(self):
         super().__init__()
         self.name = "Imperier"
-        self.images = Sprite(144, 425, 64, View.load_images('Sprites/PlayerShips/Imperier/Flying'), 0)
+        self.images = Sprite(144, 425, 64, View.load_images(spritesFolder + 'PlayerShips/Imperier/Flying'), 0)
         self.health = 3
         self.damage = 3
         self.fireRate = 2
         self.speed = 2
         self.shotType = 'Single Shot'
-        self.shotImage = Sprite(550, 365, 64, View.load_images('Sprites/Projectiles/Small_Red_Bullet'), 0)
+        self.shotImage = Sprite(550, 365, 64, View.load_images(spritesFolder + 'Projectiles/Small_Red_Bullet'), 0)
         self.ability = 'Mini KZ Mine'
-        self.abilityImages = Sprite(534, 500, 64, View.load_images('Sprites/Projectiles/Mini_KZ'),
+        self.abilityImages = Sprite(534, 500, 64, View.load_images(spritesFolder + 'Projectiles/Mini_KZ'),
                                     0)
 
 
@@ -56,15 +56,15 @@ class ViewScatter(ViewShip):
     def __init__(self):
         super().__init__()
         self.name = "Scatter"
-        self.images = Sprite(144, 425, 64, View.load_images('Sprites/PlayerShips/Scatter/Flying'), 0)
+        self.images = Sprite(144, 425, 64, View.load_images(spritesFolder + 'PlayerShips/Scatter/Flying'), 0)
         self.health = 2
         self.damage = 4
         self.fireRate = 1
         self.speed = 2
         self.shotType = ' Tri-Shot'
-        self.shotImage = Sprite(550, 365, 64, View.load_images('Sprites/Projectiles/Tri-Small_Red_Bullet'), 0)
+        self.shotImage = Sprite(550, 365, 64, View.load_images(spritesFolder + 'Projectiles/Tri-Small_Red_Bullet'), 0)
         self.ability = 'Scatter Shot'
-        self.abilityImages = Sprite(534, 500, 64, View.load_images('Sprites/Projectiles/Scatter_Small_Red_Bullet'), 0)
+        self.abilityImages = Sprite(534, 500, 64, View.load_images(spritesFolder + 'Projectiles/Scatter_Small_Red_Bullet'), 0)
 
 
 class ShipViewFactory:
